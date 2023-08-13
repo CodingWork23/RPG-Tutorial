@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Evade.wav-d11c3b93c39550cc7bc57c2afa7a7c6b.sample"
+
+[deps]
+
+source_file="res://RPG Recources/Music and Sounds/Evade.wav"
+dest_files=[ "res://.import/Evade.wav-d11c3b93c39550cc7bc57c2afa7a7c6b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
