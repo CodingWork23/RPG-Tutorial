@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://RPG Recources/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://RPG Recources/Player/Player.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "RunningRight"
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -10,3 +13,6 @@ script = ExtResource( 2 )
 position = Vector2( 0, -6 )
 texture = ExtResource( 1 )
 hframes = 60
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RunningRight = SubResource( 1 )
