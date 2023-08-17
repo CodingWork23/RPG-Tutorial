@@ -6,6 +6,8 @@ const MAX_SPEED = 100
 const ACELERATION = 500
 const FRICTION = 500
 
+onready var animationPlayer = $AnimationPlayer
+
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
