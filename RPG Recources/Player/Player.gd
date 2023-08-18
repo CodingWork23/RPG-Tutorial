@@ -7,6 +7,7 @@ const ACELERATION = 500
 const FRICTION = 500
 
 onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
