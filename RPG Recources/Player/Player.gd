@@ -16,6 +16,7 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
+		
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACELERATION * delta)
 		#velocity += input_vector * ACELERATION * delta
 		#velocity = velocity.limit_length(MAX_SPEED * delta)
