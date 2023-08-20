@@ -22,7 +22,7 @@ func _ready():
 	animationTree.active = true
 	
 	
-func _physics_process(delta):
+func _process(delta):
 	
 	match state:
 		MOVE:
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		ROLL:
 			pass
 		ATTACK:
-			attack_state(delta)
+			attack_state()
 	
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -58,7 +58,7 @@ func move_state(delta):
 		
 	print(velocity)
 
-func attack_state(delta):
+func attack_state():
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 
