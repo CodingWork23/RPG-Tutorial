@@ -54,6 +54,14 @@ texture={
 "svg/scale": 1.0
 }
 
+[layer_names]
+
+2d_physics/layer_1="PlayerHitbox"
+2d_physics/layer_2="EnemieHitbox"
+2d_physics/layer_3="ObjectHitbox"
+2d_physics/layer_4="PlayerDamageArea"
+2d_physics/layer_5="EnemieDamageArea"
+
 [physics]
 
 common/enable_pause_aware_picking=true
