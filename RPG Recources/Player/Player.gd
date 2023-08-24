@@ -11,6 +11,7 @@ const ROLL_SPEED = 100
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var swordHitbox = $Position2D/SwordHitbox
 
 enum {
 	MOVE,
@@ -24,6 +25,7 @@ var rollVector = Vector2.DOWN
 
 func _ready():
 	animationTree.active = true
+	swordHitbox.knockback_vector = rollVector
 	
 	
 func _process(delta):
@@ -44,6 +46,8 @@ func move_state(delta):
 	
 	if input_vector != Vector2.ZERO:
 		rollVector = input_vector  
+		swordHitbox.knockback_vector = input_vector
+		
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)

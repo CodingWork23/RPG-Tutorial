@@ -66,9 +66,10 @@ ctrl={
 
 2d_physics/layer_1="PlayerHurtbox"
 2d_physics/layer_2="EnemieHurtbox"
-2d_physics/layer_3="ObjectHurtbox"
-2d_physics/layer_4="PlayerDamageArea"
-2d_physics/layer_5="EnemieDamageArea"
+2d_physics/layer_3="Object"
+2d_physics/layer_4="Enemie"
+2d_physics/layer_5="Player"
+2d_physics/layer_6="World"
 
 [physics]
 
