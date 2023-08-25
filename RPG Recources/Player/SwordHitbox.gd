@@ -1,4 +1,3 @@
-extends Area2D
+extends "res://RPG Recources/Hurt- and Hitbox/Hitbox.gd"
 
-onready var stats = $Stats
 var knockback_vector = Vector2.ZERO
