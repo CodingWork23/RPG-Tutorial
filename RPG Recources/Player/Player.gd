@@ -3,10 +3,10 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 
 
-const MAX_SPEED = 75
-const ACELERATION = 500
-const FRICTION = 500
-const ROLL_SPEED = 100
+export(int) var MAX_SPEED = 75
+export(int) var ACELERATION = 500
+export(int) var FRICTION = 500
+export(int) var ROLL_SPEED = 100
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
