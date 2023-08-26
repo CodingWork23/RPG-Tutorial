@@ -1,7 +1,8 @@
 extends Node
 
 export(int) var max_health = 1
-onready var health = max_health setget set_health
+onready var health = max_health setget set_health	#setget --> wenn wert sich verändert, 
+													#dann set_health(value) ausführen
 
 signal no_health
 
