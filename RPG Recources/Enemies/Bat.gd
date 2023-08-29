@@ -9,6 +9,7 @@ export var FRICTION = 200
 onready var stats = $Stats
 onready var playerDetectionZone = $AreaDetectionZone
 onready var animatedSprite = $AnimatedSprite
+onready var hurtbox = $Hurtbox
 const DeathEffect = preload("res://RPG Recources/Effects/DeathEffect.tscn")
 
 enum {
@@ -63,6 +64,7 @@ func chase_player(delta):
 func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	knockback = area.knockback_vector * knockbackPower
+	hurtbox.create_hitEffect()
 	
 func create_deathEffect():
 	var deathEffect = DeathEffect.instance()
