@@ -14,6 +14,10 @@ config/name="RPG Tutorial"
 run/main_scene="res://RPG Recources/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerStats="*res://RPG Recources/Player/PlayerStats.tscn"
+
 [display]
 
 window/size/width=320
