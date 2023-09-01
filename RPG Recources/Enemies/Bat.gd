@@ -8,6 +8,7 @@ export var FRICTION = 200
 
 onready var stats = $Stats
 onready var playerDetectionZone = $AreaDetectionZone
+onready var collision = $Collision
 onready var animatedSprite = $AnimatedSprite
 onready var hurtbox = $Hurtbox
 const DeathEffect = preload("res://RPG Recources/Effects/DeathEffect.tscn")
@@ -30,6 +31,7 @@ func _physics_process(delta):
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 			seek_player()
+			soft_collision(delta)
 			
 		WANDER:
 			pass
@@ -51,6 +53,12 @@ func _physics_process(delta):
 func seek_player():
 	if playerDetectionZone.can_see_player():
 		state = CHASE
+
+func soft_collision(delta):
+	var enemie = collision.enemie
+	if enemie != null:
+		var soft_direction = (global_position - enemie.global_position).normalized()
+		velocity = velocity.move_toward(soft_direction * MAX_SPEED, ACCELERATION * delta)
 		
 func chase_player(delta):
 	var player = playerDetectionZone.player

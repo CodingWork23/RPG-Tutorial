@@ -1,10 +1,11 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://RPG Recources/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://RPG Recources/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://RPG Recources/Player/SwordHitbox.gd" type="Script" id=3]
 [ext_resource path="res://RPG Recources/Player/PlayerStats.tscn" type="PackedScene" id=4]
 [ext_resource path="res://RPG Recources/Hurt- and Hitbox/Hurtbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://RPG Recources/Shadows/MediumShadow.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 4.0
@@ -713,6 +714,10 @@ collision_layer = 16
 collision_mask = 36
 script = ExtResource( 2 )
 
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( -0.5, 1 )
+texture = ExtResource( 6 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -9 )
 texture = ExtResource( 1 )
@@ -720,6 +725,7 @@ hframes = 60
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 1 )
 rotation = 1.5708
 shape = SubResource( 2 )
@@ -753,6 +759,7 @@ parameters/Roll/blend_position = Vector2( 0, 0.216 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="Position2D" type="Position2D" parent="."]
+visible = false
 position = Vector2( 0, -3 )
 
 [node name="SwordHitbox" type="Area2D" parent="Position2D"]
@@ -770,6 +777,7 @@ disabled = true
 [node name="PlayerStats" parent="." instance=ExtResource( 4 )]
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+visible = false
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

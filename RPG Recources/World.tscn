@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://RPG Recources/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RPG Recources/World/Bush.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://RPG Recources/World/Grass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://RPG Recources/Enemies/Bat.tscn" type="PackedScene" id=7]
 [ext_resource path="res://RPG Recources/UI/HealthUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://RPG Recources/World/Tree.tscn" type="PackedScene" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -506,7 +507,7 @@ cell_size = Vector2( 32, 32 )
 collision_layer = 36
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -131067, 0, 196608, -131066, 0, 7, -1, 0, 0, -65536, 0, 2, -65530, 0, 196612, -65529, 0, 6, -65528, 0, 1, -65527, 0, 2, 65535, 0, 65536, 0, 0, 65538, 7, 0, 131072, 8, 0, 65542, 9, 0, 262149, 10, 0, 196610, 131071, 0, 131072, 65536, 0, 131074, 65544, 0, 131072, 65545, 0, 65543, 131075, 0, 3, 131081, 0, 196612, 131082, 0, 7, 196611, 0, 131076, 196612, 0, 2, 196618, 0, 131075, 262147, 0, 65536, 262148, 0, 131077, 262149, 0, 2, 327681, 0, 0, 327682, 0, 1, 327683, 0, 131078, 327684, 0, 65537, 327685, 0, 131077, 327686, 0, 1, 327687, 0, 2, 393217, 0, 131072, 393218, 0, 131073, 393219, 0, 131073, 393220, 0, 131073, 393221, 0, 131073, 393222, 0, 131073, 393223, 0, 196613, 393224, 0, 196610 )
+tile_data = PoolIntArray( -131067, 0, 196608, -131066, 0, 7, -1, 0, 0, -65536, 0, 2, -65530, 0, 196612, -65529, 0, 6, -65528, 0, 1, -65527, 0, 2, 65535, 0, 65536, 0, 0, 65538, 7, 0, 131072, 8, 0, 65542, 9, 0, 262149, 10, 0, 196610, 131071, 0, 131072, 65536, 0, 131074, 65544, 0, 131072, 65545, 0, 65543, 131081, 0, 196612, 131082, 0, 7, 196618, 0, 131075, 327681, 0, 0, 327682, 0, 1, 327683, 0, 1, 327684, 0, 1, 327685, 0, 1, 327686, 0, 1, 327687, 0, 2, 393217, 0, 131072, 393218, 0, 131073, 393219, 0, 131073, 393220, 0, 131073, 393221, 0, 131073, 393222, 0, 131073, 393223, 0, 196613, 393224, 0, 196610 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -577,13 +578,24 @@ position = Vector2( 32, 144 )
 [node name="Grass15" parent="YSort/Grass" instance=ExtResource( 6 )]
 position = Vector2( 80, 120 )
 
+[node name="Tree" type="YSort" parent="YSort"]
+
+[node name="Tree" parent="YSort/Tree" instance=ExtResource( 9 )]
+position = Vector2( 176, 48 )
+
+[node name="Tree2" parent="YSort/Tree" instance=ExtResource( 9 )]
+position = Vector2( 272, 168 )
+
+[node name="Tree3" parent="YSort/Tree" instance=ExtResource( 9 )]
+position = Vector2( 56, 104 )
+
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 24, 120 )
 
 [node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 304, 152 )
+position = Vector2( 208, 64 )
 
 [node name="Bat3" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 208, 64 )
+position = Vector2( 212, 64 )
 
 [node name="HealthUI" parent="." instance=ExtResource( 8 )]
