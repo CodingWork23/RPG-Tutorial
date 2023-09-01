@@ -74,6 +74,7 @@ ctrl={
 2d_physics/layer_4="Enemie"
 2d_physics/layer_5="Player"
 2d_physics/layer_6="World"
+2d_physics/layer_7="SoftCollision"
 
 [physics]
 

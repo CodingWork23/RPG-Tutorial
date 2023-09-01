@@ -7,7 +7,7 @@
 [ext_resource path="res://RPG Recources/Stats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://RPG Recources/Enemies/AreaDetectionZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://RPG Recources/Hurt- and Hitbox/Hitbox.tscn" type="PackedScene" id=7]
-[ext_resource path="res://RPG Recources/Enemies/Collision.gd" type="Script" id=8]
+[ext_resource path="res://RPG Recources/Hurt- and Hitbox/Collision.tscn" type="PackedScene" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -61,7 +61,6 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -12 )
 frames = SubResource( 6 )
-frame = 3
 playing = true
 
 [node name="Shadow" type="Sprite" parent="."]
@@ -94,19 +93,15 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -14 )
 shape = SubResource( 10 )
 
-[node name="Collision" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-script = ExtResource( 8 )
+[node name="Collision" parent="." instance=ExtResource( 8 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+[node name="CollisionShape2D" parent="Collision" index="0"]
 shape = SubResource( 11 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
-[connection signal="body_entered" from="Collision" to="Collision" method="_on_Collision_body_entered"]
-[connection signal="body_exited" from="Collision" to="Collision" method="_on_Collision_body_exited"]
 
 [editable path="Hurtbox"]
 [editable path="AreaDetectionZone"]
 [editable path="Hitbox"]
+[editable path="Collision"]

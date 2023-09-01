@@ -21,17 +21,18 @@ enum {
 
 var state = IDLE
 
+
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 
 
 func _physics_process(delta):
 	
+	
 	match state:
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 			seek_player()
-			soft_collision(delta)
 			
 		WANDER:
 			pass
@@ -39,6 +40,8 @@ func _physics_process(delta):
 		CHASE:
 			chase_player(delta)
 	
+	if collision.is_colliding():
+		velocity += collision.get_push_vector() * delta * 300
 	velocity = move_and_slide(velocity)
 	
 	if velocity.x < 0:
@@ -53,12 +56,6 @@ func _physics_process(delta):
 func seek_player():
 	if playerDetectionZone.can_see_player():
 		state = CHASE
-
-func soft_collision(delta):
-	var enemie = collision.enemie
-	if enemie != null:
-		var soft_direction = (global_position - enemie.global_position).normalized()
-		velocity = velocity.move_toward(soft_direction * MAX_SPEED, ACCELERATION * delta)
 		
 func chase_player(delta):
 	var player = playerDetectionZone.player
@@ -82,3 +79,4 @@ func create_deathEffect():
 func _on_Stats_no_health():
 	create_deathEffect()
 	queue_free()
+

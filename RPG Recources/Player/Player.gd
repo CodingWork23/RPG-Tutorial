@@ -84,6 +84,7 @@ func attack_animation_finished():
 	state = MOVE
 	
 func roll_state():
+	PlayerStats.health += 1
 	animationState.travel("Roll")
 	velocity = rollVector * ROLL_SPEED
 	move()

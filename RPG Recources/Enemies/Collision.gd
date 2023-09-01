@@ -1,14 +1,14 @@
 extends Area2D
 
+func is_colliding():
+	var areas = get_overlapping_areas()
+	return areas.size() > 0
 
-var enemie = null
-
-func can_see_enemie():
-	return enemie != null
-
-func _on_Collision_body_entered(body):
-	enemie = body
-
-
-func _on_Collision_body_exited(body):
-	enemie = null
+func get_push_vector():
+	var areas = get_overlapping_areas()
+	var pushVector = Vector2.ZERO
+	if is_colliding():
+		var area = areas[0]
+		pushVector = area.global_position.direction_to(global_position)
+		pushVector = pushVector.normalized()
+	return pushVector
